@@ -1,25 +1,34 @@
 
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Founder, Bloom Wellness',
-    content: 'Brand & Web Co. transformed our online presence completely. The website they created is not only beautiful but has increased our conversions by 40%.',
+    content: 'Brand & Web Co. transformed our online presence completely. The website they created is not only beautiful but has increased our conversions by 40%. The team was professional, responsive, and delivered exactly what we needed.',
     rating: 5,
+    image: `https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face`,
+    company: 'wellness-company.com',
+    result: '+40% conversions'
   },
   {
     name: 'Michael Chen',
     role: 'CEO, TechFlow Solutions',
-    content: 'Professional, responsive, and delivered exactly what we needed. Our new brand identity perfectly captures our company values.',
+    content: 'Working with Brand & Web Co. was a game-changer for our startup. They understood our vision from day one and created a brand identity that perfectly captures our company values. Our new website has helped us close 3x more deals.',
     rating: 5,
+    image: `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face`,
+    company: 'techflow.io',
+    result: '3x more deals closed'
   },
   {
     name: 'Emily Rodriguez',
     role: 'Owner, Artisan Coffee Co.',
-    content: 'The team understood our vision from day one. They created a website that truly represents our brand and connects with our customers.',
+    content: 'The team understood our vision from day one. They created a website that truly represents our brand and connects with our customers. Our online orders have increased by 150% since the launch. Highly recommended!',
     rating: 5,
+    image: `https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face`,
+    company: 'artisancoffee.com',
+    result: '+150% online orders'
   },
 ];
 
@@ -38,7 +47,7 @@ const Testimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it - hear from the businesses we've helped grow
+            Don't just take our word for it - hear from the businesses we've helped grow and succeed
           </p>
         </motion.div>
 
@@ -50,29 +59,64 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-gray-50 p-8 rounded-2xl"
+              className="relative"
             >
-              <div className="flex mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-gold fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                "{testimonial.content}"
-              </p>
-              
-              <div>
-                <h4 className="font-semibold text-navy">
-                  {testimonial.name}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {testimonial.role}
+              <div className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                <Quote className="h-8 w-8 text-gold mb-4" />
+                
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-gold fill-current" />
+                  ))}
+                </div>
+                
+                <p className="text-gray-700 mb-6 leading-relaxed flex-grow">
+                  "{testimonial.content}"
                 </p>
+                
+                <div className="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-navy">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-gray-600 text-sm mb-1">
+                      {testimonial.role}
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-gray-500">{testimonial.company}</span>
+                      <span className="text-xs bg-gold/20 text-navy px-2 py-1 rounded-full font-medium">
+                        {testimonial.result}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gold/10 rounded-full">
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 text-gold fill-current" />
+              ))}
+            </div>
+            <span className="text-navy font-semibold">5.0/5 average rating</span>
+            <span className="text-gray-600">• 50+ happy clients</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
