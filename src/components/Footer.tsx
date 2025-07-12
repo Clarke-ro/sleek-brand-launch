@@ -28,13 +28,14 @@ const Footer = () => {
               <li><a href="#services" className="hover:text-gold transition-colors">Website Design</a></li>
               <li><a href="#services" className="hover:text-gold transition-colors">Branding & Logos</a></li>
               <li><a href="#services" className="hover:text-gold transition-colors">Digital Presence</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors">Digital Advertising</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="mailto:hello@brandwebco.com" className="hover:text-gold transition-colors">hello@brandwebco.com</a></li>
+              <li><a href="mailto:brandandwebco@gmail.com" className="hover:text-gold transition-colors">brandandwebco@gmail.com</a></li>
               <li><a href="https://wa.me/1234567890" className="hover:text-gold transition-colors">WhatsApp</a></li>
               <li><a href="#portfolio" className="hover:text-gold transition-colors">Portfolio</a></li>
             </ul>
