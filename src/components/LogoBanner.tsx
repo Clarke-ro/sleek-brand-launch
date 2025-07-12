@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Chrome, Github, Figma, Slack, Trello, Dribbble, Twitter, Instagram, Facebook, Linkedin, Youtube, Spotify } from 'lucide-react';
+import { Chrome, Github, Figma, Slack, Trello, Dribbble, Twitter, Instagram, Facebook, Linkedin, Youtube, Radio } from 'lucide-react';
 
 const logos = [
   { icon: Chrome, name: 'Chrome' },
@@ -14,7 +14,7 @@ const logos = [
   { icon: Facebook, name: 'Facebook' },
   { icon: Linkedin, name: 'LinkedIn' },
   { icon: Youtube, name: 'YouTube' },
-  { icon: Spotify, name: 'Spotify' },
+  { icon: Radio, name: 'Radio' },
 ];
 
 const LogoBanner = () => {
