@@ -7,43 +7,37 @@ const services = [
     icon: Monitor,
     title: 'Website Design & Development',
     description: 'Modern, responsive websites that convert visitors into customers. Built with the latest technologies and optimized for speed and performance.',
-    features: ['Mobile-first design', 'Lightning-fast loading', 'SEO optimized', 'Analytics setup'],
-    price: 'From $497'
+    features: ['Mobile-first design', 'Lightning-fast loading', 'SEO optimized', 'Analytics setup']
   },
   {
     icon: Palette,
     title: 'Branding & Logo Design',
     description: 'Complete brand identity packages including logos, color schemes, typography, and comprehensive brand guidelines that make you stand out.',
-    features: ['Logo variations', 'Brand guidelines', 'Color palette', 'Business cards'],
-    price: 'From $297'
+    features: ['Logo variations', 'Brand guidelines', 'Color palette', 'Business cards']
   },
   {
     icon: Globe,
     title: 'Digital Presence Setup',
     description: 'Complete digital ecosystem setup including social media profiles, business emails, Google My Business, and basic SEO foundation.',
-    features: ['Social media setup', 'Professional email', 'Google My Business', 'Local SEO'],
-    price: 'From $197'
+    features: ['Social media setup', 'Professional email', 'Google My Business', 'Local SEO']
   },
   {
     icon: Megaphone,
     title: 'Digital Advertising & Ads',
     description: 'Strategic ad campaigns across Google, Facebook, and Instagram to drive targeted traffic and increase conversions for your business.',
-    features: ['Campaign setup', 'Audience targeting', 'Ad copy creation', 'Performance tracking'],
-    price: 'From $397'
+    features: ['Campaign setup', 'Audience targeting', 'Ad copy creation', 'Performance tracking']
   },
   {
     icon: Search,
     title: 'SEO & Content Strategy',
     description: 'Comprehensive SEO optimization and content marketing strategies to improve your search rankings and attract organic traffic.',
-    features: ['Keyword research', 'On-page optimization', 'Content calendar', 'Monthly reports'],
-    price: 'From $297'
+    features: ['Keyword research', 'On-page optimization', 'Content calendar', 'Monthly reports']
   },
   {
     icon: Smartphone,
     title: 'Mobile App Design',
     description: 'User-friendly mobile app designs and prototypes that provide exceptional user experiences across all devices and platforms.',
-    features: ['UI/UX design', 'Prototype creation', 'User testing', 'App store assets'],
-    price: 'From $697'
+    features: ['UI/UX design', 'Prototype creation', 'User testing', 'App store assets']
   }
 ];
 
@@ -139,8 +133,10 @@ const Services = () => {
                 </div>
                 
                 <div className="mt-auto">
-                  <div className="text-2xl font-bold text-navy mb-4">{service.price}</div>
-                  <button className="w-full bg-navy hover:bg-navy/90 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+                  <button 
+                    onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full bg-navy hover:bg-navy/90 text-white py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+                  >
                     Get Started
                   </button>
                 </div>

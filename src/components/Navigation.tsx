@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +26,11 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleBookingClick = () => {
+    scrollToSection('booking');
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -39,8 +46,8 @@ const Navigation = () => {
             Brand & Web Co.
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          {/* Centered Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('services')}
               className="text-navy hover:text-gold transition-colors font-medium"
@@ -60,10 +67,16 @@ const Navigation = () => {
               Testimonials
             </button>
             <button
-              onClick={() => window.open('https://wa.me/1234567890', '_blank')}
-              className="bg-navy text-white px-6 py-2 rounded-full hover:bg-navy/90 transition-colors font-medium"
+              onClick={() => navigate('/contact')}
+              className="text-navy hover:text-gold transition-colors font-medium"
             >
               Contact
+            </button>
+            <button
+              onClick={handleBookingClick}
+              className="bg-navy text-white px-6 py-2 rounded-full hover:bg-navy/90 transition-colors font-medium"
+            >
+              Book Us Now
             </button>
           </div>
 
@@ -104,10 +117,16 @@ const Navigation = () => {
                 Testimonials
               </button>
               <button
-                onClick={() => window.open('https://wa.me/1234567890', '_blank')}
-                className="bg-navy text-white px-6 py-2 rounded-full hover:bg-navy/90 transition-colors font-medium text-center"
+                onClick={() => navigate('/contact')}
+                className="text-navy hover:text-gold transition-colors font-medium text-left"
               >
                 Contact
+              </button>
+              <button
+                onClick={handleBookingClick}
+                className="bg-navy text-white px-6 py-2 rounded-full hover:bg-navy/90 transition-colors font-medium text-center"
+              >
+                Book Us Now
               </button>
             </div>
           </motion.div>

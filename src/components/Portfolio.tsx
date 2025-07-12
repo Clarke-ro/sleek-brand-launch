@@ -4,40 +4,28 @@ import { Star, TrendingUp, Users, Award } from 'lucide-react';
 
 const portfolioItems = [
   {
-    title: 'SaaS Dashboard',
-    category: 'Analytics Platform',
-    image: `https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop`,
-    description: 'Modern analytics dashboard with real-time data visualization'
+    title: 'Luxury Interior Studio',
+    image: `https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=1200&fit=crop`,
   },
   {
-    title: 'E-commerce Store',
-    category: 'Online Shopping',
-    image: `https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop`,
-    description: 'Conversion-optimized online store with seamless checkout'
+    title: 'Modern E-commerce Platform',
+    image: `https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=1200&fit=crop`,
   },
   {
-    title: 'Creative Agency',
-    category: 'Portfolio Website',
-    image: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop`,
-    description: 'Stunning portfolio showcase with smooth animations'
+    title: 'Creative Portfolio Showcase',
+    image: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop`,
   },
   {
-    title: 'Restaurant Website',
-    category: 'Food & Dining',
-    image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop`,
-    description: 'Elegant restaurant site with integrated booking system'
+    title: 'Premium Restaurant Experience',
+    image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=1200&fit=crop`,
   },
   {
-    title: 'Tech Startup',
-    category: 'Landing Page',
-    image: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop`,
-    description: 'High-converting landing page for lead generation'
+    title: 'Tech Startup Landing',
+    image: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=1200&fit=crop`,
   },
   {
-    title: 'Healthcare Platform',
-    category: 'Medical Portal',
-    image: `https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop`,
-    description: 'Patient portal with appointment scheduling features'
+    title: 'Healthcare Digital Portal',
+    image: `https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=1200&fit=crop`,
   },
 ];
 
@@ -97,8 +85,8 @@ const Portfolio = () => {
           </div>
         </motion.div>
 
-        {/* Website Mockups Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* Website Examples - Reference Style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
           {portfolioItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -108,37 +96,18 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="group cursor-pointer"
             >
-              {/* Mockup Style Image */}
-              <div className="relative">
-                <div className="bg-gray-800 rounded-t-lg p-2">
-                  <div className="flex gap-1.5 mb-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="bg-gray-700 rounded h-2 w-3/4"></div>
-                </div>
-                <div className="relative overflow-hidden rounded-b-lg">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+              <div className="relative overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
               
-              {/* Dark Stylish Text */}
               <div className="mt-6 text-center">
-                <h3 className="text-2xl font-bold text-navy mb-2 group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-xl font-light text-navy tracking-wide italic group-hover:text-gold transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 font-medium mb-2">
-                  {item.category}
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
               </div>
             </motion.div>
           ))}
@@ -152,7 +121,10 @@ const Portfolio = () => {
           className="text-center mt-16"
         >
           <p className="text-gray-600 mb-6">Ready to get your own professional website?</p>
-          <button className="bg-navy hover:bg-navy/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
+          <button 
+            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-navy hover:bg-navy/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
             Start Your Project
           </button>
         </motion.div>
