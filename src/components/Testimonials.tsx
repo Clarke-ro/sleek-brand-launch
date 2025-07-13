@@ -1,8 +1,11 @@
 
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Plus } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import ReviewForm from './ReviewForm';
 
-const testimonials = [
+const staticTestimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Founder, Bloom Wellness',
@@ -32,7 +35,57 @@ const testimonials = [
   },
 ];
 
+interface Review {
+  id: string;
+  name: string;
+  email: string;
+  company?: string;
+  role?: string;
+  rating: number;
+  content: string;
+  created_at: string;
+}
+
 const Testimonials = () => {
+  const [dynamicReviews, setDynamicReviews] = useState<Review[]>([]);
+  const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('reviews')
+        .select('*')
+        .eq('is_approved', true)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setDynamicReviews(data || []);
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Combine static and dynamic testimonials
+  const allTestimonials = [
+    ...staticTestimonials,
+    ...dynamicReviews.map(review => ({
+      name: review.name,
+      role: review.role || 'Customer',
+      content: review.content,
+      rating: review.rating,
+      image: `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face`,
+      company: review.company || '',
+      result: ''
+    }))
+  ];
+
   return (
     <section className="py-20 bg-white" id="testimonials">
       <div className="max-w-6xl mx-auto px-4">
@@ -49,12 +102,24 @@ const Testimonials = () => {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Don't just take our word for it - hear from the businesses we've helped grow and succeed
           </p>
+          
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            onClick={() => setIsReviewFormOpen(true)}
+            className="mt-8 inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-navy px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
+            <Plus className="h-5 w-5" />
+            Leave a Review
+          </motion.button>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {allTestimonials.map((testimonial, index) => (
             <motion.div
-              key={testimonial.name}
+              key={`${testimonial.name}-${index}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -87,12 +152,18 @@ const Testimonials = () => {
                     <p className="text-gray-600 text-sm mb-1">
                       {testimonial.role}
                     </p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs text-gray-500">{testimonial.company}</span>
-                      <span className="text-xs bg-gold/20 text-navy px-2 py-1 rounded-full font-medium">
-                        {testimonial.result}
-                      </span>
-                    </div>
+                    {(testimonial.company || testimonial.result) && (
+                      <div className="flex items-center gap-2">
+                        {testimonial.company && (
+                          <span className="text-xs text-gray-500">{testimonial.company}</span>
+                        )}
+                        {testimonial.result && (
+                          <span className="text-xs bg-gold/20 text-navy px-2 py-1 rounded-full font-medium">
+                            {testimonial.result}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -114,10 +185,15 @@ const Testimonials = () => {
               ))}
             </div>
             <span className="text-navy font-semibold">5.0/5 average rating</span>
-            <span className="text-gray-600">• 50+ happy clients</span>
+            <span className="text-gray-600">• {50 + dynamicReviews.length}+ happy clients</span>
           </div>
         </motion.div>
       </div>
+
+      <ReviewForm 
+        isOpen={isReviewFormOpen} 
+        onClose={() => setIsReviewFormOpen(false)} 
+      />
     </section>
   );
 };
