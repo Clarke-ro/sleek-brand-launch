@@ -111,6 +111,12 @@ const Navigation = () => {
                 >
                   Testimonials
                 </button>
+                <button
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-navy hover:text-gold transition-colors font-medium"
+                >
+                  Pricing
+                </button>
               </>
             )}
             <button
@@ -174,6 +180,12 @@ const Navigation = () => {
                     className="text-navy hover:text-gold transition-colors font-medium text-left"
                   >
                     Testimonials
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('pricing')}
+                    className="text-navy hover:text-gold transition-colors font-medium text-left"
+                  >
+                    Pricing
                   </button>
                 </>
               )}
