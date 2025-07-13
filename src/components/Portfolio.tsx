@@ -4,28 +4,28 @@ import { Star, TrendingUp, Users, Award } from 'lucide-react';
 
 const portfolioItems = [
   {
-    title: 'Luxury Interior Studio',
-    image: `https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=1200&fit=crop`,
+    title: 'ecommerce',
+    image: `https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop`,
   },
   {
-    title: 'Modern E-commerce Platform',
-    image: `https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=1200&fit=crop`,
+    title: 'portfolio',
+    image: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop`,
   },
   {
-    title: 'Creative Portfolio Showcase',
-    image: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1200&fit=crop`,
+    title: 'Healthcare',
+    image: `https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop`,
   },
   {
-    title: 'Premium Restaurant Experience',
-    image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=1200&fit=crop`,
+    title: 'restaurant',
+    image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop`,
   },
   {
-    title: 'Tech Startup Landing',
-    image: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=1200&fit=crop`,
+    title: 'SaaS',
+    image: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop`,
   },
   {
-    title: 'Healthcare Digital Portal',
-    image: `https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=1200&fit=crop`,
+    title: 'Hotel',
+    image: `https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop`,
   },
 ];
 
@@ -85,8 +85,8 @@ const Portfolio = () => {
           </div>
         </motion.div>
 
-        {/* Website Examples - Reference Style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
+        {/* Portfolio Grid - Angled Mockup Style */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-16">
           {portfolioItems.map((item, index) => (
             <motion.div
               key={item.title}
@@ -96,16 +96,27 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Angled mockup container */}
+              <div className="relative mb-8">
+                <div 
+                  className="transform rotate-12 hover:rotate-6 transition-transform duration-500 origin-center"
+                  style={{ perspective: '1000px' }}
+                >
+                  <div className="bg-white p-4 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-48 object-cover rounded"
+                    />
+                    <div className="h-2 bg-gray-100 rounded mt-2"></div>
+                    <div className="h-1 bg-gray-50 rounded mt-1"></div>
+                  </div>
+                </div>
               </div>
               
-              <div className="mt-6 text-center">
-                <h3 className="text-xl font-light text-navy tracking-wide italic group-hover:text-gold transition-colors duration-300">
+              {/* Stylish text label */}
+              <div className="text-center">
+                <h3 className="text-2xl md:text-3xl font-light text-navy tracking-wide lowercase group-hover:text-gold transition-colors duration-300">
                   {item.title}
                 </h3>
               </div>
