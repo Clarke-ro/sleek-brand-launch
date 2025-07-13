@@ -21,21 +21,31 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };
 
   const handleBookingClick = () => {
     scrollToSection('booking');
-    setIsMobileMenuOpen(false);
   };
 
   const handleLogoClick = () => {
-    // If on home page, scroll to top, otherwise navigate to home
-    if (window.location.pathname === '/') {
+    if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate('/');
@@ -71,7 +81,7 @@ const Navigation = () => {
             <span>Brand & Web Co.</span>
           </button>
 
-          {/* Centered Desktop Menu */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {isContactPage && (
               <button
