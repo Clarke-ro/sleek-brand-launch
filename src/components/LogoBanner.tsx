@@ -1,20 +1,20 @@
 
 import { motion } from 'framer-motion';
-import { Chrome, Github, Figma, Slack, Trello, Dribbble, Twitter, Instagram, Facebook, Linkedin, Youtube, Radio } from 'lucide-react';
+import { Apple, Chrome, Github, Figma, Slack, Twitter, Instagram, Facebook, Linkedin, Youtube, Zap } from 'lucide-react';
 
 const logos = [
-  { icon: Chrome, name: 'Chrome' },
+  { icon: Apple, name: 'Apple' },
+  { icon: Chrome, name: 'Google' },
   { icon: Github, name: 'GitHub' },
   { icon: Figma, name: 'Figma' },
   { icon: Slack, name: 'Slack' },
-  { icon: Trello, name: 'Trello' },
-  { icon: Dribbble, name: 'Dribbble' },
   { icon: Twitter, name: 'Twitter' },
   { icon: Instagram, name: 'Instagram' },
-  { icon: Facebook, name: 'Facebook' },
+  { icon: Facebook, name: 'Meta' },
   { icon: Linkedin, name: 'LinkedIn' },
   { icon: Youtube, name: 'YouTube' },
-  { icon: Radio, name: 'Radio' },
+  { icon: Zap, name: 'Tesla' },
+  { icon: Chrome, name: 'Samsung' },
 ];
 
 const LogoBanner = () => {
@@ -39,10 +39,10 @@ const LogoBanner = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-            Trusted by Modern Teams
+            Be Inspired by Global Leaders
           </h2>
           <p className="text-gray-600 text-lg">
-            Join thousands of businesses who trust us with their digital presence
+            These brands started somewhere. Your journey to greatness begins with the right digital foundation
           </p>
         </motion.div>
 
@@ -74,10 +74,10 @@ const LogoBanner = () => {
                   key={`first-${index}`}
                   className="flex flex-col items-center justify-center min-w-[120px] group"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg">
-                    <logo.icon className="h-8 w-8 text-navy/80 group-hover:text-gold transition-colors duration-300" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-gold/10 to-gold/5 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300 group-hover:shadow-md border border-gray-100">
+                    <logo.icon className="h-10 w-10 text-navy group-hover:text-gold transition-colors duration-300" />
                   </div>
-                  <span className="text-sm font-medium text-gray-600 group-hover:text-navy transition-colors duration-300">
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-navy transition-colors duration-300">
                     {logo.name}
                   </span>
                 </div>
@@ -89,10 +89,10 @@ const LogoBanner = () => {
                   key={`second-${index}`}
                   className="flex flex-col items-center justify-center min-w-[120px] group"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300 group-hover:shadow-lg">
-                    <logo.icon className="h-8 w-8 text-navy/80 group-hover:text-gold transition-colors duration-300" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-gold/10 to-gold/5 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300 group-hover:shadow-md border border-gray-100">
+                    <logo.icon className="h-10 w-10 text-navy group-hover:text-gold transition-colors duration-300" />
                   </div>
-                  <span className="text-sm font-medium text-gray-600 group-hover:text-navy transition-colors duration-300">
+                  <span className="text-sm font-semibold text-gray-700 group-hover:text-navy transition-colors duration-300">
                     {logo.name}
                   </span>
                 </div>
@@ -111,19 +111,19 @@ const LogoBanner = () => {
         >
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-navy mb-2">500+</div>
-            <div className="text-gray-600 font-medium">Happy Clients</div>
+            <div className="text-gray-600 font-medium">Brands Launched</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-navy mb-2">1000+</div>
-            <div className="text-gray-600 font-medium">Projects Completed</div>
+            <div className="text-gray-600 font-medium">Digital Solutions</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-navy mb-2">24/7</div>
-            <div className="text-gray-600 font-medium">Support Available</div>
+            <div className="text-gray-600 font-medium">Creative Support</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-navy mb-2">99.9%</div>
-            <div className="text-gray-600 font-medium">Uptime Guarantee</div>
+            <div className="text-gray-600 font-medium">Success Rate</div>
           </div>
         </motion.div>
       </div>
