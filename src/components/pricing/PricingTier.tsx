@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Check, Star } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface PricingTierProps {
@@ -34,9 +33,14 @@ const PricingTier = ({
   formatPrice, 
   onGetStarted 
 }: PricingTierProps) => {
-  const getRingColor = () => {
-    if (popular) return 'ring-pink-500';
-    return 'ring-blue-500';
+  const getCardColor = () => {
+    if (index === 0) return 'bg-pink-300';
+    if (index === 1) return 'bg-teal-300';
+    return 'bg-yellow-400';
+  };
+
+  const getTextColor = () => {
+    return 'text-gray-900';
   };
 
   return (
@@ -45,56 +49,53 @@ const PricingTier = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
+      className="relative"
     >
-      <Card className={`relative h-full bg-gray-900 border-gray-800 text-white ring-2 ${getRingColor()} hover:ring-4 transition-all duration-300 ${popular ? 'shadow-xl' : ''}`}>
+      <div className={`${getCardColor()} rounded-3xl p-8 h-full flex flex-col relative overflow-hidden`}>
         {popular && (
           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-              <Star size={16} />
+            <div className="bg-gray-900 text-white px-4 py-1 rounded-full text-sm font-semibold">
               Most Popular
             </div>
           </div>
         )}
         
-        <CardHeader className="text-center pb-6">
-          <div className="text-4xl mb-2">{icon}</div>
-          <CardTitle className="text-2xl font-bold text-white mb-2">
+        <div className="mb-6">
+          <h3 className={`text-lg font-medium ${getTextColor()} mb-2`}>
             {name}
-          </CardTitle>
-          <div className="space-y-2">
-            <div className="text-4xl font-bold text-gold">
+          </h3>
+          <div className="mb-4">
+            <div className={`text-5xl font-bold ${getTextColor()} mb-2`}>
               {formatPrice(priceGHS)}
             </div>
-            <div className="text-sm text-gray-300">
+            <div className={`text-sm ${getTextColor()} opacity-80`}>
               <div>Down Payment: {formatPrice(downPaymentGHS)}</div>
               <div>Balance: {formatPrice(balanceGHS)}</div>
             </div>
           </div>
-          <p className="text-gray-300 text-sm mt-4">{description}</p>
-        </CardHeader>
+          <p className={`${getTextColor()} opacity-80 text-sm`}>{description}</p>
+        </div>
 
-        <CardContent className="pt-0">
-          <ul className="space-y-3 mb-8">
+        <div className="flex-1 mb-8">
+          <ul className="space-y-3">
             {features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
-                <Check className="text-gold mt-0.5 flex-shrink-0" size={16} />
-                <span className="text-gray-200 text-sm">{feature}</span>
+                <div className="w-5 h-5 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="text-white" size={12} />
+                </div>
+                <span className={`${getTextColor()} text-sm leading-relaxed`}>{feature}</span>
               </li>
             ))}
           </ul>
+        </div>
 
-          <Button
-            onClick={() => onGetStarted(id)}
-            className={`w-full ${
-              popular
-                ? 'bg-pink-500 text-white hover:bg-pink-600'
-                : 'bg-blue-500 text-white hover:bg-blue-600'
-            }`}
-          >
-            Get Started
-          </Button>
-        </CardContent>
-      </Card>
+        <Button
+          onClick={() => onGetStarted(id)}
+          className="w-full bg-gray-900 text-white hover:bg-gray-800 rounded-xl py-3 font-semibold"
+        >
+          Get Started
+        </Button>
+      </div>
     </motion.div>
   );
 };
