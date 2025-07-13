@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -15,6 +14,8 @@ import {
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface BookingFormData {
   name: string;
@@ -39,6 +40,7 @@ const services = [
 const Booking = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<BookingFormData>({
     defaultValues: {
@@ -56,19 +58,40 @@ const Booking = () => {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     
-    // Simulate form submission (in a real app, you'd send this to your backend)
     try {
-      // Here you would typically send the data to your backend
-      // which would then email it to brandandwebco@gmail.com
-      console.log('Booking form data:', data);
+      console.log('Submitting booking form data:', data);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Call the edge function to send email
+      const { data: emailResult, error } = await supabase.functions.invoke('send-booking-email', {
+        body: data
+      });
+
+      if (error) {
+        console.error('Error calling send-booking-email function:', error);
+        toast({
+          title: "Error",
+          description: "There was an error submitting your booking. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      console.log('Email sent successfully:', emailResult);
       
       setIsSubmitted(true);
       form.reset();
+      
+      toast({
+        title: "Booking Submitted!",
+        description: "We've received your booking request and will contact you within 24 hours.",
+      });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting booking form:', error);
+      toast({
+        title: "Error",
+        description: "There was an error submitting your booking. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }

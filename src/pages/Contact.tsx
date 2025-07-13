@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -18,6 +17,8 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Clock, Arr
 import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactFormData {
   name: string;
@@ -31,6 +32,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const form = useForm<ContactFormData>({
     defaultValues: {
@@ -46,17 +48,39 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Here you would typically send the data to your backend
-      // which would then email it to brandandwebco@gmail.com
-      console.log('Contact form data:', data);
+      console.log('Submitting contact form data:', data);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Call the edge function to send email
+      const { data: emailResult, error } = await supabase.functions.invoke('send-contact-email', {
+        body: data
+      });
+
+      if (error) {
+        console.error('Error calling send-contact-email function:', error);
+        toast({
+          title: "Error",
+          description: "There was an error sending your message. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      console.log('Contact email sent successfully:', emailResult);
       
       setIsSubmitted(true);
       form.reset();
+      
+      toast({
+        title: "Message Sent!",
+        description: "We've received your message and will get back to you within 24 hours.",
+      });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error submitting contact form:', error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
