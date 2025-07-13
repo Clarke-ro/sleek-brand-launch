@@ -1,130 +1,97 @@
 
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <footer className="bg-navy text-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="md:col-span-2"
-          >
-            <div className="text-2xl font-bold mb-4">Brand & Web Co.</div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              We create stunning websites and powerful brand identities that help businesses 
-              stand out in the digital world. From concept to launch, we're your digital partners.
+    <footer className="bg-navy text-white">
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/6ace45e1-0a3d-4dce-af2f-b1e993a5fb5e.png" 
+                alt="Brand & Web Co Logo" 
+                className="h-12 w-auto"
+              />
+              <span className="text-2xl font-bold font-marykate text-gold">Brand & Web Co.</span>
+            </div>
+            <p className="text-gray-300 mb-6 max-w-md">
+              Professional websites and branding for growing businesses and modern entrepreneurs. 
+              Transform your digital presence with designs that convert visitors into customers.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold/80 transition-colors">
-                <Facebook className="h-5 w-5 text-navy" />
+              <a 
+                href="https://instagram.com/brandandwebco" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-gold transition-colors duration-300"
+              >
+                <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold/80 transition-colors">
-                <Instagram className="h-5 w-5 text-navy" />
+              <a 
+                href="https://facebook.com/brandandwebco" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-gold transition-colors duration-300"
+              >
+                <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold/80 transition-colors">
-                <Twitter className="h-5 w-5 text-navy" />
+              <a 
+                href="https://twitter.com/brandandwebco" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-gold transition-colors duration-300"
+              >
+                <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-gold rounded-full flex items-center justify-center hover:bg-gold/80 transition-colors">
-                <Linkedin className="h-5 w-5 text-navy" />
+              <a 
+                href="https://linkedin.com/company/brandandwebco" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full hover:bg-gold transition-colors duration-300"
+              >
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-gold transition-colors"
-                >
-                  Services
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('portfolio')}
-                  className="text-gray-300 hover:text-gold transition-colors"
-                >
-                  Portfolio
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('testimonials')}
-                  className="text-gray-300 hover:text-gold transition-colors"
-                >
-                  Testimonials
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection('booking')}
-                  className="text-gray-300 hover:text-gold transition-colors"
-                >
-                  Book Us Now
-                </button>
-              </li>
+          {/* Services */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-gold">Services</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li><a href="#" className="hover:text-gold transition-colors duration-300">Web Design</a></li>
+              <li><a href="#" className="hover:text-gold transition-colors duration-300">Brand Identity</a></li>
+              <li><a href="#" className="hover:text-gold transition-colors duration-300">E-commerce</a></li>
+              <li><a href="#" className="hover:text-gold transition-colors duration-300">SEO Optimization</a></li>
+              <li><a href="#" className="hover:text-gold transition-colors duration-300">Maintenance</a></li>
             </ul>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-gold">Contact</h3>
+            <div className="space-y-3 text-gray-300">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gold" />
-                <a href="mailto:brandandwebco@gmail.com" className="text-gray-300 hover:text-gold transition-colors">
-                  brandandwebco@gmail.com
-                </a>
+                <span>brandandwebco@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gold" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-gold transition-colors">
-                  +1 (555) 123-4567
-                </a>
+                <span>+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-gold" />
-                <span className="text-gray-300">Worldwide Remote Services</span>
+                <span>Global Services</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
-        >
-          <p>&copy; 2024 Brand & Web Co. All rights reserved. Built with passion for digital excellence.</p>
-        </motion.div>
+        {/* Bottom Section */}
+        <div className="border-t border-white/20 mt-12 pt-8 text-center text-gray-400">
+          <p>&copy; 2024 Brand & Web Co. All rights reserved. Designed with ❤️ for growing businesses.</p>
+        </div>
       </div>
     </footer>
   );
