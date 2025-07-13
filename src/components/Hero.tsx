@@ -11,12 +11,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy/95 to-navy/90">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800/95 to-slate-900/90">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gold/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/3 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/3 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
       {/* Floating Geometric Shapes */}
@@ -30,7 +30,7 @@ const Hero = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-20 left-20 w-8 h-8 bg-gold/20 rounded-lg"
+        className="absolute top-20 left-20 w-8 h-8 bg-blue-500/20 rounded-lg"
       />
       <motion.div
         animate={{ 
@@ -43,7 +43,7 @@ const Hero = () => {
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-32 right-32 w-12 h-12 bg-gold/15 rounded-full"
+        className="absolute bottom-32 right-32 w-12 h-12 bg-blue-500/15 rounded-full"
       />
       <motion.div
         animate={{ 
@@ -56,7 +56,7 @@ const Hero = () => {
           ease: "easeInOut",
           delay: 2
         }}
-        className="absolute top-1/3 right-20 w-6 h-6 bg-gold/25 transform rotate-45"
+        className="absolute top-1/3 right-20 w-6 h-6 bg-blue-500/25 transform rotate-45"
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
@@ -74,24 +74,24 @@ const Hero = () => {
             className="inline-flex items-center gap-6 bg-white/10 backdrop-blur-md rounded-full px-8 py-4 mb-8 border border-white/20"
           >
             <div className="flex items-center gap-2">
-              <Star className="h-5 w-5 text-gold fill-current" />
+              <Star className="h-5 w-5 text-blue-400 fill-current" />
               <span className="text-white font-semibold">5.0 Rating</span>
             </div>
             <div className="w-px h-6 bg-white/30"></div>
             <div className="flex items-center gap-2">
-              <Users className="h-5 w-5 text-gold" />
+              <Users className="h-5 w-5 text-blue-400" />
               <span className="text-white font-semibold">50+ Happy Clients</span>
             </div>
             <div className="w-px h-6 bg-white/30"></div>
             <div className="flex items-center gap-2">
-              <Globe className="h-5 w-5 text-gold" />
+              <Globe className="h-5 w-5 text-blue-400" />
               <span className="text-white font-semibold">Worldwide Service</span>
             </div>
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Build Your Dream
-            <span className="block text-gold">Website Today</span>
+            <span className="block text-blue-400">Website Today</span>
           </h1>
         </motion.div>
 
@@ -115,7 +115,7 @@ const Hero = () => {
             onClick={scrollToBooking}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group bg-gold hover:bg-gold/90 text-navy px-8 py-4 rounded-full font-bold text-lg flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="group bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Get a Website
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -130,7 +130,7 @@ const Hero = () => {
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-white/30 hover:border-gold text-white hover:text-gold px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 backdrop-blur-sm"
+            className="border-2 border-white/30 hover:border-blue-400 text-white hover:text-blue-400 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 backdrop-blur-sm"
           >
             View Our Work
           </motion.button>
@@ -151,7 +151,7 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-gold rounded-full mt-2"
+              className="w-1 h-3 bg-blue-400 rounded-full mt-2"
             />
           </motion.div>
         </motion.div>
