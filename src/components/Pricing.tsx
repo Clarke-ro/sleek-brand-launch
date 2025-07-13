@@ -292,7 +292,7 @@ const Pricing = () => {
                           <Zap className="text-gold w-6 h-6" />
                         </div>
                         <h4 className="font-bold text-navy mb-3 text-lg leading-tight">{addon.name}</h4>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-gold to-gold/80 bg-clip-text text-transparent">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-navy to-navy/80 bg-clip-text text-transparent">
                           {formatPrice(addon.priceGHS)}
                         </div>
                       </div>
