@@ -30,7 +30,11 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
     console.log('Starting review submission with data:', formData);
 
     try {
-      // Prepare the data for insertion - ensure all required fields are present
+      // Check current session status
+      const { data: session, error: sessionError } = await supabase.auth.getSession();
+      console.log('Current session:', session, 'Session error:', sessionError);
+
+      // Prepare the data for insertion
       const reviewData = {
         name: formData.name.trim(),
         email: formData.email.trim(),
@@ -38,12 +42,12 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
         role: formData.role.trim() || null,
         rating: formData.rating,
         content: formData.content.trim(),
-        is_approved: false // Explicitly set this
+        is_approved: false
       };
 
       console.log('Prepared review data for insertion:', reviewData);
 
-      // Insert the review into the database
+      // Try to insert the review directly without user context
       const { data: insertedReview, error: insertError } = await supabase
         .from('reviews')
         .insert([reviewData])
@@ -52,6 +56,12 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
 
       if (insertError) {
         console.error('Database insertion error:', insertError);
+        console.error('Error details:', {
+          code: insertError.code,
+          message: insertError.message,
+          details: insertError.details,
+          hint: insertError.hint
+        });
         throw insertError;
       }
 
@@ -74,13 +84,11 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
 
         if (emailError) {
           console.error('Email notification error:', emailError);
-          // Don't fail the whole process if email fails
         } else {
           console.log('Review notification email sent successfully');
         }
       } catch (emailError) {
         console.error('Error sending notification email:', emailError);
-        // Continue with success message even if email fails
       }
 
       toast({
