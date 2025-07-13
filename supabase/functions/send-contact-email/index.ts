@@ -19,6 +19,8 @@ interface ContactEmailRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log("send-contact-email function called");
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -27,6 +29,19 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const contactData: ContactEmailRequest = await req.json();
     console.log("Received contact data:", contactData);
+
+    // Check if RESEND_API_KEY is available
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY is not set");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
     // Send email to Brand & Web Co
     const emailResponse = await resend.emails.send({
@@ -73,7 +88,7 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(
       JSON.stringify({ error: error.message }),
       {
-        status: 500,
+      status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
