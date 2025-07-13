@@ -14,7 +14,8 @@ import {
   FormMessage 
 } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Clock, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
@@ -29,6 +30,7 @@ interface ContactFormData {
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<ContactFormData>({
     defaultValues: {
@@ -66,6 +68,18 @@ const Contact = () => {
       
       <div className="pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-4">
+          {/* Back Navigation Arrow */}
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            onClick={() => navigate('/')}
+            className="flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-8 group"
+          >
+            <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+            <span className="font-medium">Back to Home</span>
+          </motion.button>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
