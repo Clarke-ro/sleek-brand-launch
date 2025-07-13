@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Send, X } from 'lucide-react';
@@ -28,11 +27,41 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
+      // Insert the review into the database
+      const { data: reviewData, error: insertError } = await supabase
         .from('reviews')
-        .insert([formData]);
+        .insert([formData])
+        .select()
+        .single();
 
-      if (error) throw error;
+      if (insertError) throw insertError;
+
+      console.log('Review inserted:', reviewData);
+
+      // Send notification email
+      try {
+        const { error: emailError } = await supabase.functions.invoke('send-review-notification', {
+          body: {
+            reviewId: reviewData.id,
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            role: formData.role,
+            rating: formData.rating,
+            content: formData.content
+          }
+        });
+
+        if (emailError) {
+          console.error('Email notification error:', emailError);
+          // Don't fail the whole process if email fails
+        } else {
+          console.log('Review notification email sent successfully');
+        }
+      } catch (emailError) {
+        console.error('Error sending notification email:', emailError);
+        // Continue with success message even if email fails
+      }
 
       toast({
         title: "Review submitted successfully!",
@@ -48,7 +77,6 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
         content: ''
       });
       
-      // Call the callback to refresh reviews
       if (onReviewSubmitted) {
         onReviewSubmitted();
       }
