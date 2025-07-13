@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Send, X } from 'lucide-react';
@@ -26,29 +27,48 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
     e.preventDefault();
     setIsSubmitting(true);
 
+    console.log('Starting review submission with data:', formData);
+
     try {
+      // Prepare the data for insertion - ensure all required fields are present
+      const reviewData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        company: formData.company.trim() || null,
+        role: formData.role.trim() || null,
+        rating: formData.rating,
+        content: formData.content.trim(),
+        is_approved: false // Explicitly set this
+      };
+
+      console.log('Prepared review data for insertion:', reviewData);
+
       // Insert the review into the database
-      const { data: reviewData, error: insertError } = await supabase
+      const { data: insertedReview, error: insertError } = await supabase
         .from('reviews')
-        .insert([formData])
+        .insert([reviewData])
         .select()
         .single();
 
-      if (insertError) throw insertError;
+      if (insertError) {
+        console.error('Database insertion error:', insertError);
+        throw insertError;
+      }
 
-      console.log('Review inserted:', reviewData);
+      console.log('Review inserted successfully:', insertedReview);
 
       // Send notification email
       try {
+        console.log('Attempting to send notification email...');
         const { error: emailError } = await supabase.functions.invoke('send-review-notification', {
           body: {
-            reviewId: reviewData.id,
-            name: formData.name,
-            email: formData.email,
-            company: formData.company,
-            role: formData.role,
-            rating: formData.rating,
-            content: formData.content
+            reviewId: insertedReview.id,
+            name: reviewData.name,
+            email: reviewData.email,
+            company: reviewData.company,
+            role: reviewData.role,
+            rating: reviewData.rating,
+            content: reviewData.content
           }
         });
 
