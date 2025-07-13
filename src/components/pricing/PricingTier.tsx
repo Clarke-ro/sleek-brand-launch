@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -49,12 +48,12 @@ const PricingTier = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="relative"
+      className="relative pt-6"
     >
       <div className={`${getCardColor()} rounded-3xl p-8 h-full flex flex-col relative overflow-hidden`}>
         {popular && (
-          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gray-900 text-white px-4 py-1 rounded-full text-sm font-semibold">
+          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+            <div className="bg-gray-900 text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
               Most Popular
             </div>
           </div>
