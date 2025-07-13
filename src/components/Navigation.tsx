@@ -59,7 +59,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/6ace45e1-0a3d-4dce-af2f-b1e993a5fb5e.png" 
               alt="Brand & Web Co Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
             <span>Brand & Web Co.</span>
           </button>

@@ -6,14 +6,14 @@ const portfolioItems = [
   {
     title: 'ecommerce',
     images: [
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+      '/lovable-uploads/b8dd96e6-ee41-4b07-a533-2ab54059f485.png',
     ],
     type: 'single'
   },
   {
     title: 'portfolio',
     images: [
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
+      '/lovable-uploads/b20f9e9c-e95c-40f9-ad14-ffb58aef653f.png',
     ],
     type: 'single'
   },
@@ -28,22 +28,22 @@ const portfolioItems = [
   {
     title: 'healthcare',
     images: [
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+      '/lovable-uploads/9761d7e6-fbf8-4640-b166-6e67999800ff.png',
     ],
     type: 'single'
   },
   {
     title: 'saas',
     images: [
-      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      '/lovable-uploads/3a9019a1-8f66-433a-82a1-3b130cfd7789.png',
+      '/lovable-uploads/b8dd96e6-ee41-4b07-a533-2ab54059f485.png',
     ],
     type: 'stacked'
   },
   {
     title: 'hotel',
     images: [
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
+      '/lovable-uploads/4b6006f6-4acc-4bf9-8c38-2118cb99883b.png',
     ],
     type: 'single'
   },
@@ -193,9 +193,9 @@ const Portfolio = () => {
                 )}
               </div>
               
-              {/* Stylish text label */}
+              {/* Stylish text label with MaryKate font */}
               <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-light text-navy tracking-wide lowercase group-hover:text-gold transition-colors duration-300">
+                <h3 className="text-3xl md:text-4xl font-light text-navy tracking-wide lowercase group-hover:text-gold transition-colors duration-300" style={{ fontFamily: 'MaryKate, cursive' }}>
                   {item.title}
                 </h3>
               </div>
