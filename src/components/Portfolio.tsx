@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star, TrendingUp, Users, Award } from 'lucide-react';
+
 const portfolioItems = [{
   title: 'ecommerce',
   images: ['/lovable-uploads/b8dd96e6-ee41-4b07-a533-2ab54059f485.png'],
@@ -44,21 +45,16 @@ const stats = [{
 }];
 
 const Portfolio = () => {
-  return <section className="py-20 bg-gray-900" id="portfolio">
+  return (
+    <section className="py-20 bg-gray-900" id="portfolio">
       <div className="max-w-7xl mx-auto px-4">
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.8
-      }} viewport={{
-        once: true
-      }} className="text-center mb-16">
-          
-          
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Websites We've Built
           </h2>
@@ -68,49 +64,44 @@ const Portfolio = () => {
           
           {/* Enhanced Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => <motion.div key={stat.label} initial={{
-            opacity: 0,
-            scale: 0.8
-          }} whileInView={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            duration: 0.6,
-            delay: index * 0.1
-          }} viewport={{
-            once: true
-          }} className="text-center group">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center group"
+              >
                 <div className="bg-gray-800 rounded-2xl p-6 hover:bg-gold/5 transition-all duration-300 border border-gray-700">
                   <stat.icon className="h-8 w-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                   <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.number}</div>
                   <div className="text-gray-300 font-medium">{stat.label}</div>
                 </div>
-              </motion.div>)}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Portfolio Grid with Mixed Layouts */}
+        {/* Portfolio Grid with Enhanced Interactive Animations */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-16">
-          {portfolioItems.map((item, index) => <motion.div key={item.title} initial={{
-          opacity: 0,
-          y: 30
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6,
-          delay: index * 0.1
-        }} viewport={{
-          once: true
-        }} className="group cursor-pointer">
-              {/* Different layouts based on type */}
+          {portfolioItems.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group cursor-pointer"
+            >
+              {/* Different layouts based on type with enhanced hover animations */}
               <div className="relative mb-8 h-64">
-                {item.type === 'single' ?
-            // Single angled mockup
-            <div className="transform rotate-12 hover:rotate-6 transition-transform duration-500 origin-center h-full" style={{
-              perspective: '1000px'
-            }}>
-                    <div className="bg-white p-3 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500 h-full">
+                {item.type === 'single' ? (
+                  // Single angled mockup with enhanced hover effect
+                  <div className="transform rotate-12 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500 ease-out origin-center h-full hover:z-10 relative" style={{
+                    perspective: '1000px'
+                  }}>
+                    <div className="bg-white p-3 rounded-lg shadow-2xl transform transition-all duration-500 h-full group-hover:shadow-3xl">
                       {/* Browser chrome */}
                       <div className="flex items-center gap-2 mb-2 px-2">
                         <div className="flex gap-1">
@@ -123,78 +114,91 @@ const Portfolio = () => {
                         </div>
                       </div>
                       <div className="rounded h-40 overflow-hidden">
-                        <img src={item.images[0]} alt={`${item.title} website`} className="w-full h-full object-cover object-top" />
+                        <img 
+                          src={item.images[0]} 
+                          alt={`${item.title} website`} 
+                          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
+                        />
                       </div>
                     </div>
-                  </div> :
-            // Stacked mockups spread at angles
-            <div className="relative h-full">
+                  </div>
+                ) : (
+                  // Stacked mockups with enhanced hover animations
+                  <div className="relative h-full">
                     {/* Back mockup */}
-                    <div className="absolute top-4 left-4 transform rotate-6 transition-transform duration-500 w-48 h-56" style={{
-                perspective: '1000px'
-              }}>
-                      <div className="bg-white p-3 rounded-lg shadow-xl h-full">
+                    <div className="absolute top-4 left-4 transform rotate-6 group-hover:rotate-2 group-hover:translate-x-2 group-hover:translate-y-2 transition-all duration-500 w-48 h-56" style={{
+                      perspective: '1000px'
+                    }}>
+                      <div className="bg-white p-3 rounded-lg shadow-xl h-full transition-shadow duration-500 group-hover:shadow-2xl">
                         <div className="flex items-center gap-1 mb-2">
                           <div className="w-1.5 h-1.5 bg-red-400 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
                         </div>
                         <div className="rounded h-full overflow-hidden">
-                          <img src={item.images[1] || item.images[0]} alt={`${item.title} website page 2`} className="w-full h-full object-cover object-top" />
+                          <img 
+                            src={item.images[1] || item.images[0]} 
+                            alt={`${item.title} website page 2`} 
+                            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
+                          />
                         </div>
                       </div>
                     </div>
                     
                     {/* Front mockup */}
-                    <div className="absolute top-0 right-0 transform -rotate-6 hover:rotate-0 transition-transform duration-500 w-48 h-56 z-10" style={{
-                perspective: '1000px'
-              }}>
-                      <div className="bg-white p-3 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500 h-full">
+                    <div className="absolute top-0 right-0 transform -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-500 ease-out w-48 h-56 z-10" style={{
+                      perspective: '1000px'
+                    }}>
+                      <div className="bg-white p-3 rounded-lg shadow-2xl h-full transition-shadow duration-500 group-hover:shadow-3xl">
                         <div className="flex items-center gap-1 mb-2">
                           <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                         </div>
                         <div className="rounded h-full overflow-hidden">
-                          <img src={item.images[0]} alt={`${item.title} website`} className="w-full h-full object-cover object-top" />
+                          <img 
+                            src={item.images[0]} 
+                            alt={`${item.title} website`} 
+                            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
+                          />
                         </div>
                       </div>
                     </div>
-                  </div>}
+                  </div>
+                )}
               </div>
               
               {/* Stylish text label with MaryKate font */}
               <div className="text-center">
-                <h3 className="text-3xl md:text-4xl font-light text-white tracking-wide lowercase group-hover:text-gold transition-colors duration-300" style={{
-              fontFamily: 'MaryKate, cursive'
-            }}>
+                <h3 
+                  className="text-3xl md:text-4xl font-light text-white tracking-wide lowercase group-hover:text-gold transition-colors duration-300" 
+                  style={{ fontFamily: 'MaryKate, cursive' }}
+                >
                   {item.title}
                 </h3>
               </div>
-            </motion.div>)}
+            </motion.div>
+          ))}
         </div>
 
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.6,
-        delay: 0.8
-      }} viewport={{
-        once: true
-      }} className="text-center mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
           <p className="text-gray-300 mb-6">Ready to get your own professional website?</p>
-          <button onClick={() => document.getElementById('booking')?.scrollIntoView({
-          behavior: 'smooth'
-        })} className="bg-navy hover:bg-navy/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
+          <button 
+            onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })} 
+            className="bg-navy hover:bg-navy/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
             Start Your Project
           </button>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default Portfolio;

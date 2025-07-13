@@ -41,7 +41,7 @@ const PricingTier = ({
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <Card className={`relative h-full bg-gray-800 border-gray-700 ${popular ? 'border-gold border-2 shadow-xl' : ''}`}>
+      <Card className={`relative h-full bg-white border-gray-200 ${popular ? 'border-gold border-2 shadow-xl' : ''}`}>
         {popular && (
           <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <div className="bg-gold text-navy px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -53,19 +53,19 @@ const PricingTier = ({
         
         <CardHeader className="text-center pb-6">
           <div className="text-4xl mb-2">{icon}</div>
-          <CardTitle className="text-2xl font-bold text-white mb-2">
+          <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
             {name}
           </CardTitle>
           <div className="space-y-2">
             <div className="text-4xl font-bold text-gold">
               {formatPrice(priceGHS)}
             </div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-600">
               <div>Down Payment: {formatPrice(downPaymentGHS)}</div>
               <div>Balance: {formatPrice(balanceGHS)}</div>
             </div>
           </div>
-          <p className="text-gray-300 text-sm mt-4">{description}</p>
+          <p className="text-gray-600 text-sm mt-4">{description}</p>
         </CardHeader>
 
         <CardContent className="pt-0">
@@ -73,7 +73,7 @@ const PricingTier = ({
             {features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <Check className="text-gold mt-0.5 flex-shrink-0" size={16} />
-                <span className="text-gray-300 text-sm">{feature}</span>
+                <span className="text-gray-700 text-sm">{feature}</span>
               </li>
             ))}
           </ul>
@@ -83,7 +83,7 @@ const PricingTier = ({
             className={`w-full ${
               popular
                 ? 'bg-gold text-navy hover:bg-gold/90'
-                : 'bg-white text-navy hover:bg-gray-100'
+                : 'bg-navy text-white hover:bg-navy/90'
             }`}
           >
             Get Started

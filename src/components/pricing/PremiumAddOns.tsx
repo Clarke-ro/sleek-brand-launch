@@ -24,7 +24,7 @@ const PremiumAddOns = ({ addOns, formatPrice, onGetStarted }: PremiumAddOnsProps
       viewport={{ once: true }}
       className="text-center"
     >
-      <div className="relative bg-gradient-to-br from-gray-800 via-gray-800/80 to-gray-800 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-gray-700 backdrop-blur-sm overflow-hidden">
+      <div className="relative bg-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-gray-200 backdrop-blur-sm overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-gold/5 to-transparent rounded-full translate-x-20 translate-y-20"></div>
@@ -36,7 +36,7 @@ const PremiumAddOns = ({ addOns, formatPrice, onGetStarted }: PremiumAddOnsProps
             <div className="p-3 bg-gradient-to-r from-gold to-gold/80 rounded-full shadow-lg">
               <Sparkles className="text-navy w-6 h-6" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center">
               Premium Add-Ons
             </h3>
             <div className="p-3 bg-gradient-to-l from-gold to-gold/80 rounded-full shadow-lg">
@@ -44,7 +44,7 @@ const PremiumAddOns = ({ addOns, formatPrice, onGetStarted }: PremiumAddOnsProps
             </div>
           </div>
 
-          <p className="text-gray-300 mb-8 sm:mb-10 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 mb-8 sm:mb-10 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Elevate your digital presence with our exclusive premium services
           </p>
 
