@@ -20,8 +20,8 @@ const portfolioItems = [
   {
     title: 'restaurant',
     images: [
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
+      '/lovable-uploads/ca399273-8f94-4561-baf0-40637c319e54.png',
+      '/lovable-uploads/406c4c1c-66db-47c0-9d9a-41af5aeec16f.png',
     ],
     type: 'stacked'
   },
@@ -136,13 +136,12 @@ const Portfolio = () => {
                           {item.title}.com
                         </div>
                       </div>
-                      <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded h-40 flex items-center justify-center border">
-                        <div className="text-center p-4">
-                          <div className="w-16 h-4 bg-gray-300 rounded mb-3 mx-auto"></div>
-                          <div className="w-24 h-2 bg-gray-200 rounded mb-2 mx-auto"></div>
-                          <div className="w-20 h-2 bg-gray-200 rounded mx-auto"></div>
-                          <div className="w-12 h-6 bg-navy rounded mt-4 mx-auto"></div>
-                        </div>
+                      <div className="rounded h-40 overflow-hidden">
+                        <img 
+                          src={item.images[0]} 
+                          alt={`${item.title} website`}
+                          className="w-full h-full object-cover object-top"
+                        />
                       </div>
                     </div>
                   </div>
@@ -160,12 +159,12 @@ const Portfolio = () => {
                           <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
                         </div>
-                        <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded h-full flex items-center justify-center">
-                          <div className="text-center p-2">
-                            <div className="w-12 h-3 bg-gray-300 rounded mb-2 mx-auto"></div>
-                            <div className="w-16 h-1.5 bg-gray-200 rounded mb-1 mx-auto"></div>
-                            <div className="w-14 h-1.5 bg-gray-200 rounded mx-auto"></div>
-                          </div>
+                        <div className="rounded h-full overflow-hidden">
+                          <img 
+                            src={item.images[1] || item.images[0]} 
+                            alt={`${item.title} website page 2`}
+                            className="w-full h-full object-cover object-top"
+                          />
                         </div>
                       </div>
                     </div>
@@ -181,13 +180,12 @@ const Portfolio = () => {
                           <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
                           <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                         </div>
-                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded h-full flex items-center justify-center border">
-                          <div className="text-center p-2">
-                            <div className="w-12 h-3 bg-gray-300 rounded mb-2 mx-auto"></div>
-                            <div className="w-16 h-1.5 bg-gray-200 rounded mb-1 mx-auto"></div>
-                            <div className="w-14 h-1.5 bg-gray-200 rounded mb-2 mx-auto"></div>
-                            <div className="w-8 h-4 bg-navy rounded mx-auto"></div>
-                          </div>
+                        <div className="rounded h-full overflow-hidden">
+                          <img 
+                            src={item.images[0]} 
+                            alt={`${item.title} website`}
+                            className="w-full h-full object-cover object-top"
+                          />
                         </div>
                       </div>
                     </div>

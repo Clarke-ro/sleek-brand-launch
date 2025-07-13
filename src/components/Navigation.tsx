@@ -31,6 +31,16 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    // If on home page, scroll to top, otherwise navigate to home
+    if (window.location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
@@ -42,9 +52,17 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-navy">
-            Brand & Web Co.
-          </div>
+          <button 
+            onClick={handleLogoClick}
+            className="flex items-center space-x-2 text-2xl font-bold text-navy hover:text-gold transition-colors"
+          >
+            <img 
+              src="/lovable-uploads/6ace45e1-0a3d-4dce-af2f-b1e993a5fb5e.png" 
+              alt="Brand & Web Co Logo" 
+              className="h-8 w-auto"
+            />
+            <span>Brand & Web Co.</span>
+          </button>
 
           {/* Centered Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
