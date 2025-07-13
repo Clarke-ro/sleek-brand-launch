@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Users, Globe } from 'lucide-react';
 const Hero = () => {
@@ -9,7 +10,7 @@ const Hero = () => {
       });
     }
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50 pt-20 sm:pt-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -58,7 +59,7 @@ const Hero = () => {
           {/* Top Badge */}
           
 
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
             We Design Sleek,
             <span className="block text-yellow-500">Trustworthy</span>
             <span className="block text-gray-900">Websites & Brands</span>
@@ -74,7 +75,7 @@ const Hero = () => {
       }} transition={{
         duration: 0.8,
         delay: 0.4
-      }} className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+      }} className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
           Professional websites and branding for growing businesses and modern entrepreneurs. 
           Transform your digital presence with designs that convert visitors into customers.
         </motion.p>
@@ -89,24 +90,24 @@ const Hero = () => {
       }} transition={{
         duration: 0.8,
         delay: 0.5
-      }} className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-12">
+      }} className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mb-12">
           <div className="flex items-center gap-2 text-gray-700">
             <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </div>
-            <span className="font-medium">Fast 3-5 day delivery</span>
+            <span className="font-medium text-sm sm:text-base">Fast 3-5 day delivery</span>
           </div>
           <div className="flex items-center gap-2 text-gray-700">
             <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </div>
-            <span className="font-medium">Mobile-first responsive design</span>
+            <span className="font-medium text-sm sm:text-base">Mobile-first responsive design</span>
           </div>
           <div className="flex items-center gap-2 text-gray-700">
             <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">✓</span>
             </div>
-            <span className="font-medium">SEO optimized</span>
+            <span className="font-medium text-sm sm:text-base">SEO optimized</span>
           </div>
         </motion.div>
 
@@ -133,7 +134,7 @@ const Hero = () => {
           scale: 1.05
         }} whileTap={{
           scale: 0.95
-        }} className="text-gray-600 text-lg">
+        }} className="text-gray-600 text-base sm:text-lg">
             Starting from $110 • Free consultation
           </motion.div>
         </motion.div>

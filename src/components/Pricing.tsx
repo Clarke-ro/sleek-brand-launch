@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star, Zap, Sparkles, Crown } from 'lucide-react';
@@ -146,7 +147,7 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="pricing" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -155,27 +156,27 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-marykate">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-marykate">
             Our Pricing Tiers
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Choose the perfect package for your business needs. All packages include our signature touch and dedication to excellence.
           </p>
           <div className="mt-6 flex justify-center items-center gap-4">
-            <span className={`text-sm ${currency === 'GHS' ? 'text-navy font-semibold' : 'text-gray-500'}`}>
+            <span className={`text-sm ${currency === 'GHS' ? 'text-white font-semibold' : 'text-gray-400'}`}>
               GHS (Cedis)
             </span>
             <button
               onClick={() => setCurrency(currency === 'GHS' ? 'USD' : 'GHS')}
-              className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors hover:bg-gray-300"
+              className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-700 transition-colors hover:bg-gray-600"
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-navy transition-transform ${
+                className={`inline-block h-4 w-4 transform rounded-full bg-gold transition-transform ${
                   currency === 'USD' ? 'translate-x-6' : 'translate-x-1'
                 }`}
               />
             </button>
-            <span className={`text-sm ${currency === 'USD' ? 'text-navy font-semibold' : 'text-gray-500'}`}>
+            <span className={`text-sm ${currency === 'USD' ? 'text-white font-semibold' : 'text-gray-400'}`}>
               USD (Dollars)
             </span>
           </div>
@@ -190,7 +191,7 @@ const Pricing = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className={`relative h-full ${tier.popular ? 'border-gold border-2 shadow-xl' : 'border-gray-200'}`}>
+              <Card className={`relative h-full bg-gray-800 border-gray-700 ${tier.popular ? 'border-gold border-2 shadow-xl' : ''}`}>
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-gold text-navy px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -202,19 +203,19 @@ const Pricing = () => {
                 
                 <CardHeader className="text-center pb-6">
                   <div className="text-4xl mb-2">{tier.icon}</div>
-                  <CardTitle className="text-2xl font-bold text-navy mb-2">
+                  <CardTitle className="text-2xl font-bold text-white mb-2">
                     {tier.name}
                   </CardTitle>
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-navy">
+                    <div className="text-4xl font-bold text-gold">
                       {formatPrice(tier.priceGHS)}
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-400">
                       <div>Down Payment: {formatPrice(tier.downPaymentGHS)}</div>
                       <div>Balance: {formatPrice(tier.balanceGHS)}</div>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm mt-4">{tier.description}</p>
+                  <p className="text-gray-300 text-sm mt-4">{tier.description}</p>
                 </CardHeader>
 
                 <CardContent className="pt-0">
@@ -222,7 +223,7 @@ const Pricing = () => {
                     {tier.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <Check className="text-gold mt-0.5 flex-shrink-0" size={16} />
-                        <span className="text-gray-700 text-sm">{feature}</span>
+                        <span className="text-gray-300 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -232,7 +233,7 @@ const Pricing = () => {
                     className={`w-full ${
                       tier.popular
                         ? 'bg-gold text-navy hover:bg-gold/90'
-                        : 'bg-navy text-white hover:bg-navy/90'
+                        : 'bg-white text-navy hover:bg-gray-100'
                     }`}
                   >
                     Get Started
@@ -251,19 +252,19 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="relative bg-gradient-to-br from-white via-gray-50/50 to-white rounded-3xl p-12 shadow-2xl border border-gray-200/50 backdrop-blur-sm overflow-hidden">
+          <div className="relative bg-gradient-to-br from-gray-800 via-gray-800/80 to-gray-800 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-gray-700 backdrop-blur-sm overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
-            <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-navy/5 to-transparent rounded-full translate-x-20 translate-y-20"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-gold/5 to-transparent rounded-full translate-x-20 translate-y-20"></div>
             <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-gold rounded-full animate-pulse"></div>
-            <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-navy rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-gold rounded-full animate-pulse delay-1000"></div>
             
             <div className="relative z-10">
-              <div className="flex items-center justify-center gap-3 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6 sm:mb-8">
                 <div className="p-3 bg-gradient-to-r from-gold to-gold/80 rounded-full shadow-lg">
                   <Sparkles className="text-navy w-6 h-6" />
                 </div>
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-navy to-navy/80 bg-clip-text text-transparent">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white text-center">
                   Premium Add-Ons
                 </h3>
                 <div className="p-3 bg-gradient-to-l from-gold to-gold/80 rounded-full shadow-lg">
@@ -271,11 +272,11 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gray-300 mb-8 sm:mb-10 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                 Elevate your digital presence with our exclusive premium services
               </p>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
                 {addOns.map((addon, index) => (
                   <motion.div
                     key={index}
@@ -285,14 +286,14 @@ const Pricing = () => {
                     viewport={{ once: true }}
                     className="group relative"
                   >
-                    <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-100/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-navy/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative bg-gray-700/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-600/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-gold/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
-                          <Zap className="text-gold w-6 h-6" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                          <Zap className="text-gold w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
-                        <h4 className="font-bold text-navy mb-3 text-lg leading-tight">{addon.name}</h4>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-navy to-navy/80 bg-clip-text text-transparent">
+                        <h4 className="font-bold text-white mb-2 sm:mb-3 text-base sm:text-lg leading-tight text-center">{addon.name}</h4>
+                        <div className="text-xl sm:text-2xl font-bold text-gold text-center">
                           {formatPrice(addon.priceGHS)}
                         </div>
                       </div>
@@ -301,29 +302,29 @@ const Pricing = () => {
                 ))}
               </div>
 
-              <div className="relative bg-gradient-to-r from-navy via-navy/95 to-navy text-white p-10 rounded-3xl shadow-2xl border border-navy/20 overflow-hidden">
+              <div className="relative bg-gradient-to-r from-gray-700 via-gray-700/95 to-gray-700 text-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-2xl border border-gray-600/20 overflow-hidden">
                 {/* Decorative background pattern */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-gold to-transparent rounded-full -translate-x-32 -translate-y-32"></div>
-                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl from-gold/50 to-transparent rounded-full translate-x-24 translate-y-24"></div>
+                  <div className="absolute top-0 left-0 w-32 sm:w-64 h-32 sm:h-64 bg-gradient-to-br from-gold to-transparent rounded-full -translate-x-16 sm:-translate-x-32 -translate-y-16 sm:-translate-y-32"></div>
+                  <div className="absolute bottom-0 right-0 w-24 sm:w-48 h-24 sm:h-48 bg-gradient-to-tl from-gold/50 to-transparent rounded-full translate-x-12 sm:translate-x-24 translate-y-12 sm:translate-y-24"></div>
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center gap-2 mb-6">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4 sm:mb-6">
                     <div className="p-2 bg-gold/20 rounded-lg">
-                      <Sparkles className="text-gold w-6 h-6" />
+                      <Sparkles className="text-gold w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h4 className="text-2xl font-bold">Custom Solutions Available</h4>
+                    <h4 className="text-xl sm:text-2xl font-bold text-center">Custom Solutions Available</h4>
                   </div>
-                  <p className="text-gray-200 mb-6 text-lg max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-gray-200 mb-4 sm:mb-6 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-center">
                     Have a unique vision? Let's collaborate to create something extraordinary that perfectly aligns with your brand and objectives.
                   </p>
                   <Button
                     onClick={() => handleGetStarted('custom')}
                     variant="outline"
-                    className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-navy transition-all duration-300 px-8 py-3 text-lg font-semibold backdrop-blur-sm shadow-lg hover:shadow-xl"
+                    className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-navy transition-all duration-300 px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-semibold backdrop-blur-sm shadow-lg hover:shadow-xl"
                   >
-                    <Crown className="w-5 h-5 mr-2" />
+                    <Crown className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Get Custom Quote
                   </Button>
                 </div>
