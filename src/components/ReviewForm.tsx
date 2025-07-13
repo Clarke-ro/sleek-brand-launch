@@ -8,9 +8,10 @@ import { useToast } from '@/hooks/use-toast';
 interface ReviewFormProps {
   isOpen: boolean;
   onClose: () => void;
+  onReviewSubmitted?: () => void;
 }
 
-const ReviewForm = ({ isOpen, onClose }: ReviewFormProps) => {
+const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,6 +47,12 @@ const ReviewForm = ({ isOpen, onClose }: ReviewFormProps) => {
         rating: 5,
         content: ''
       });
+      
+      // Call the callback to refresh reviews
+      if (onReviewSubmitted) {
+        onReviewSubmitted();
+      }
+      
       onClose();
     } catch (error) {
       console.error('Error submitting review:', error);

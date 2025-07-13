@@ -72,6 +72,12 @@ const Testimonials = () => {
     }
   };
 
+  const handleReviewSubmitted = () => {
+    // Refresh reviews after a new one is submitted
+    fetchReviews();
+    setIsReviewFormOpen(false);
+  };
+
   // Combine static and dynamic testimonials
   const allTestimonials = [
     ...staticTestimonials,
@@ -192,7 +198,8 @@ const Testimonials = () => {
 
       <ReviewForm 
         isOpen={isReviewFormOpen} 
-        onClose={() => setIsReviewFormOpen(false)} 
+        onClose={() => setIsReviewFormOpen(false)}
+        onReviewSubmitted={handleReviewSubmitted}
       />
     </section>
   );
