@@ -13,7 +13,7 @@ const portfolioItems = [
   {
     title: 'portfolio',
     images: [
-      '/lovable-uploads/b20f9e9c-e95c-40f9-ad14-ffb58aef653f.png',
+      '/lovable-uploads/e2d2f23e-df79-443b-ae10-8dc566183e05.png',
     ],
     type: 'single'
   },
