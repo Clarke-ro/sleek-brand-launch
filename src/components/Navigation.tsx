@@ -54,12 +54,12 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center space-x-2 text-2xl font-bold text-navy hover:text-gold transition-colors"
+            className="flex items-center space-x-3 text-2xl font-bold text-navy hover:text-gold transition-colors font-marykate"
           >
             <img 
               src="/lovable-uploads/6ace45e1-0a3d-4dce-af2f-b1e993a5fb5e.png" 
               alt="Brand & Web Co Logo" 
-              className="h-10 w-auto"
+              className="h-16 w-auto"
             />
             <span>Brand & Web Co.</span>
           </button>
