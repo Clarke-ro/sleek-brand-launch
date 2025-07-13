@@ -43,7 +43,7 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send email to Brand & Web Co
+    // Send email to Brand & Web Co - matching the working booking email format
     const emailResponse = await resend.emails.send({
       from: "Brand & Web Co <onboarding@resend.dev>",
       to: ["brandandwebco@gmail.com"],
@@ -88,7 +88,7 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(
       JSON.stringify({ error: error.message }),
       {
-      status: 500,
+        status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       }
     );
