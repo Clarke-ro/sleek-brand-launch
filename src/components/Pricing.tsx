@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Star, Zap } from 'lucide-react';
+import { Check, Star, Zap, Sparkles, Crown } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -244,7 +243,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Add-ons Section */}
+        {/* Premium Add-ons Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -252,35 +251,83 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Zap className="text-gold" size={24} />
-              <h3 className="text-2xl font-bold text-navy">Bonus Add-Ons</h3>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {addOns.map((addon, index) => (
-                <div key={index} className="text-center p-4 bg-gray-50 rounded-xl">
-                  <h4 className="font-semibold text-navy mb-2">{addon.name}</h4>
-                  <div className="text-xl font-bold text-gold">
-                    {formatPrice(addon.priceGHS)}
-                  </div>
+          <div className="relative bg-gradient-to-br from-white via-gray-50/50 to-white rounded-3xl p-12 shadow-2xl border border-gray-200/50 backdrop-blur-sm overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-gold/10 to-transparent rounded-full -translate-x-16 -translate-y-16"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-navy/5 to-transparent rounded-full translate-x-20 translate-y-20"></div>
+            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-gold rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-navy rounded-full animate-pulse delay-1000"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="p-3 bg-gradient-to-r from-gold to-gold/80 rounded-full shadow-lg">
+                  <Sparkles className="text-navy w-6 h-6" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-3xl font-bold bg-gradient-to-r from-navy to-navy/80 bg-clip-text text-transparent">
+                  Premium Add-Ons
+                </h3>
+                <div className="p-3 bg-gradient-to-l from-gold to-gold/80 rounded-full shadow-lg">
+                  <Crown className="text-navy w-6 h-6" />
+                </div>
+              </div>
 
-            <div className="bg-gradient-to-r from-navy to-navy/90 text-white p-6 rounded-xl">
-              <h4 className="text-xl font-bold mb-2">📝 Custom Quotes Available</h4>
-              <p className="text-gray-200 mb-4">
-                Have a unique project in mind? Let's chat. We'll tailor a plan that meets your goals and budget.
+              <p className="text-gray-600 mb-10 text-lg max-w-2xl mx-auto leading-relaxed">
+                Elevate your digital presence with our exclusive premium services
               </p>
-              <Button
-                onClick={() => handleGetStarted('custom')}
-                variant="outline"
-                className="bg-white text-navy hover:bg-gray-100"
-              >
-                Get Custom Quote
-              </Button>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                {addOns.map((addon, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-100/50 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                      <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-navy/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="relative z-10">
+                        <div className="w-12 h-12 bg-gradient-to-br from-gold/20 to-gold/10 rounded-xl flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                          <Zap className="text-gold w-6 h-6" />
+                        </div>
+                        <h4 className="font-bold text-navy mb-3 text-lg leading-tight">{addon.name}</h4>
+                        <div className="text-2xl font-bold bg-gradient-to-r from-gold to-gold/80 bg-clip-text text-transparent">
+                          {formatPrice(addon.priceGHS)}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="relative bg-gradient-to-r from-navy via-navy/95 to-navy text-white p-10 rounded-3xl shadow-2xl border border-navy/20 overflow-hidden">
+                {/* Decorative background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-gold to-transparent rounded-full -translate-x-32 -translate-y-32"></div>
+                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-gradient-to-tl from-gold/50 to-transparent rounded-full translate-x-24 translate-y-24"></div>
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center justify-center gap-2 mb-6">
+                    <div className="p-2 bg-gold/20 rounded-lg">
+                      <Sparkles className="text-gold w-6 h-6" />
+                    </div>
+                    <h4 className="text-2xl font-bold">Custom Solutions Available</h4>
+                  </div>
+                  <p className="text-gray-200 mb-6 text-lg max-w-2xl mx-auto leading-relaxed">
+                    Have a unique vision? Let's collaborate to create something extraordinary that perfectly aligns with your brand and objectives.
+                  </p>
+                  <Button
+                    onClick={() => handleGetStarted('custom')}
+                    variant="outline"
+                    className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-navy transition-all duration-300 px-8 py-3 text-lg font-semibold backdrop-blur-sm shadow-lg hover:shadow-xl"
+                  >
+                    <Crown className="w-5 h-5 mr-2" />
+                    Get Custom Quote
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
