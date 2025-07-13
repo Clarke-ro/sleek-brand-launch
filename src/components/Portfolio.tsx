@@ -5,27 +5,47 @@ import { Star, TrendingUp, Users, Award } from 'lucide-react';
 const portfolioItems = [
   {
     title: 'ecommerce',
-    image: `https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop`,
+    images: [
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    ],
+    type: 'single'
   },
   {
     title: 'portfolio',
-    image: `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop`,
-  },
-  {
-    title: 'Healthcare',
-    image: `https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop`,
+    images: [
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
+    ],
+    type: 'single'
   },
   {
     title: 'restaurant',
-    image: `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop`,
+    images: [
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
+    ],
+    type: 'stacked'
   },
   {
-    title: 'SaaS',
-    image: `https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop`,
+    title: 'healthcare',
+    images: [
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+    ],
+    type: 'single'
   },
   {
-    title: 'Hotel',
-    image: `https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop`,
+    title: 'saas',
+    images: [
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    ],
+    type: 'stacked'
+  },
+  {
+    title: 'hotel',
+    images: [
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
+    ],
+    type: 'single'
   },
 ];
 
@@ -85,7 +105,7 @@ const Portfolio = () => {
           </div>
         </motion.div>
 
-        {/* Portfolio Grid - Angled Mockup Style */}
+        {/* Portfolio Grid with Mixed Layouts */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-16">
           {portfolioItems.map((item, index) => (
             <motion.div
@@ -96,22 +116,83 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="group cursor-pointer"
             >
-              {/* Angled mockup container */}
-              <div className="relative mb-8">
-                <div 
-                  className="transform rotate-12 hover:rotate-6 transition-transform duration-500 origin-center"
-                  style={{ perspective: '1000px' }}
-                >
-                  <div className="bg-white p-4 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500">
-                    <img 
-                      src={item.image} 
-                      alt={item.title}
-                      className="w-full h-48 object-cover rounded"
-                    />
-                    <div className="h-2 bg-gray-100 rounded mt-2"></div>
-                    <div className="h-1 bg-gray-50 rounded mt-1"></div>
+              {/* Different layouts based on type */}
+              <div className="relative mb-8 h-64">
+                {item.type === 'single' ? (
+                  // Single angled mockup
+                  <div 
+                    className="transform rotate-12 hover:rotate-6 transition-transform duration-500 origin-center h-full"
+                    style={{ perspective: '1000px' }}
+                  >
+                    <div className="bg-white p-3 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500 h-full">
+                      {/* Browser chrome */}
+                      <div className="flex items-center gap-2 mb-2 px-2">
+                        <div className="flex gap-1">
+                          <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div className="flex-1 bg-gray-100 rounded px-2 py-1 text-xs text-gray-500">
+                          {item.title}.com
+                        </div>
+                      </div>
+                      <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded h-40 flex items-center justify-center border">
+                        <div className="text-center p-4">
+                          <div className="w-16 h-4 bg-gray-300 rounded mb-3 mx-auto"></div>
+                          <div className="w-24 h-2 bg-gray-200 rounded mb-2 mx-auto"></div>
+                          <div className="w-20 h-2 bg-gray-200 rounded mx-auto"></div>
+                          <div className="w-12 h-6 bg-navy rounded mt-4 mx-auto"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  // Stacked mockups spread at angles
+                  <div className="relative h-full">
+                    {/* Back mockup */}
+                    <div 
+                      className="absolute top-4 left-4 transform rotate-6 transition-transform duration-500 w-48 h-56"
+                      style={{ perspective: '1000px' }}
+                    >
+                      <div className="bg-white p-3 rounded-lg shadow-xl h-full">
+                        <div className="flex items-center gap-1 mb-2">
+                          <div className="w-1.5 h-1.5 bg-red-400 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                        </div>
+                        <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded h-full flex items-center justify-center">
+                          <div className="text-center p-2">
+                            <div className="w-12 h-3 bg-gray-300 rounded mb-2 mx-auto"></div>
+                            <div className="w-16 h-1.5 bg-gray-200 rounded mb-1 mx-auto"></div>
+                            <div className="w-14 h-1.5 bg-gray-200 rounded mx-auto"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Front mockup */}
+                    <div 
+                      className="absolute top-0 right-0 transform -rotate-6 hover:rotate-0 transition-transform duration-500 w-48 h-56 z-10"
+                      style={{ perspective: '1000px' }}
+                    >
+                      <div className="bg-white p-3 rounded-lg shadow-2xl transform hover:scale-105 transition-all duration-500 h-full">
+                        <div className="flex items-center gap-1 mb-2">
+                          <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded h-full flex items-center justify-center border">
+                          <div className="text-center p-2">
+                            <div className="w-12 h-3 bg-gray-300 rounded mb-2 mx-auto"></div>
+                            <div className="w-16 h-1.5 bg-gray-200 rounded mb-1 mx-auto"></div>
+                            <div className="w-14 h-1.5 bg-gray-200 rounded mb-2 mx-auto"></div>
+                            <div className="w-8 h-4 bg-navy rounded mx-auto"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* Stylish text label */}
