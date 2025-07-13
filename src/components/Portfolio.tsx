@@ -42,8 +42,9 @@ const stats = [{
   label: 'Quick Delivery',
   icon: Star
 }];
+
 const Portfolio = () => {
-  return <section className="py-20 bg-gradient-to-br from-gray-50 to-white" id="portfolio">
+  return <section className="py-20 bg-gray-900" id="portfolio">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div initial={{
         opacity: 0,
@@ -58,10 +59,10 @@ const Portfolio = () => {
       }} className="text-center mb-16">
           
           
-          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Websites We've Built
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
             Beautiful, functional websites designed to help businesses grow and succeed online
           </p>
           
@@ -79,10 +80,10 @@ const Portfolio = () => {
           }} viewport={{
             once: true
           }} className="text-center group">
-                <div className="bg-white rounded-2xl p-6 hover:bg-gold/5 transition-all duration-300 border border-gray-100">
+                <div className="bg-gray-800 rounded-2xl p-6 hover:bg-gold/5 transition-all duration-300 border border-gray-700">
                   <stat.icon className="h-8 w-8 text-gold mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                  <div className="text-2xl md:text-3xl font-bold text-navy mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-2">{stat.number}</div>
+                  <div className="text-gray-300 font-medium">{stat.label}</div>
                 </div>
               </motion.div>)}
           </div>
@@ -164,7 +165,7 @@ const Portfolio = () => {
               
               {/* Stylish text label with MaryKate font */}
               <div className="text-center">
-                <h3 className="text-3xl md:text-4xl font-light text-navy tracking-wide lowercase group-hover:text-gold transition-colors duration-300" style={{
+                <h3 className="text-3xl md:text-4xl font-light text-white tracking-wide lowercase group-hover:text-gold transition-colors duration-300" style={{
               fontFamily: 'MaryKate, cursive'
             }}>
                   {item.title}
@@ -185,7 +186,7 @@ const Portfolio = () => {
       }} viewport={{
         once: true
       }} className="text-center mt-16">
-          <p className="text-gray-600 mb-6">Ready to get your own professional website?</p>
+          <p className="text-gray-300 mb-6">Ready to get your own professional website?</p>
           <button onClick={() => document.getElementById('booking')?.scrollIntoView({
           behavior: 'smooth'
         })} className="bg-navy hover:bg-navy/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105">
@@ -195,4 +196,5 @@ const Portfolio = () => {
       </div>
     </section>;
 };
+
 export default Portfolio;
