@@ -30,10 +30,6 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
     console.log('Starting review submission with data:', formData);
 
     try {
-      // Check current session status
-      const { data: session, error: sessionError } = await supabase.auth.getSession();
-      console.log('Current session:', session, 'Session error:', sessionError);
-
       // Prepare the data for insertion
       const reviewData = {
         name: formData.name.trim(),
@@ -47,7 +43,7 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
 
       console.log('Prepared review data for insertion:', reviewData);
 
-      // Try to insert the review directly without user context
+      // Insert the review directly into the database
       const { data: insertedReview, error: insertError } = await supabase
         .from('reviews')
         .insert([reviewData])
@@ -56,44 +52,14 @@ const ReviewForm = ({ isOpen, onClose, onReviewSubmitted }: ReviewFormProps) => 
 
       if (insertError) {
         console.error('Database insertion error:', insertError);
-        console.error('Error details:', {
-          code: insertError.code,
-          message: insertError.message,
-          details: insertError.details,
-          hint: insertError.hint
-        });
         throw insertError;
       }
 
       console.log('Review inserted successfully:', insertedReview);
 
-      // Send notification email
-      try {
-        console.log('Attempting to send notification email...');
-        const { error: emailError } = await supabase.functions.invoke('send-review-notification', {
-          body: {
-            reviewId: insertedReview.id,
-            name: reviewData.name,
-            email: reviewData.email,
-            company: reviewData.company,
-            role: reviewData.role,
-            rating: reviewData.rating,
-            content: reviewData.content
-          }
-        });
-
-        if (emailError) {
-          console.error('Email notification error:', emailError);
-        } else {
-          console.log('Review notification email sent successfully');
-        }
-      } catch (emailError) {
-        console.error('Error sending notification email:', emailError);
-      }
-
       toast({
         title: "Review submitted successfully!",
-        description: "Thank you for your feedback. Your review will be published after approval.",
+        description: "Thank you for your feedback. Your review will be published after manual approval by our team.",
       });
 
       setFormData({
