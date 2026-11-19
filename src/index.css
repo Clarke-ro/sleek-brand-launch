@@ -116,8 +116,8 @@ All colors MUST be HSL.
   }
 
   ::selection {
-    background: #d5ebe3;
-    color: #161513;
+    background: #8cc63f;
+    color: #1b3a0c;
   }
 
   :focus-visible {
@@ -129,6 +129,11 @@ All colors MUST be HSL.
 @layer components {
   .shell {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+  }
+
+  .site-header {
+    border-top: 4px solid #8cc63f;
+    border-bottom: 1px solid #e2dfd8;
   }
 
   .skip-link {

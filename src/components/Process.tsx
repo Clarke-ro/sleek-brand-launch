@@ -30,7 +30,7 @@ const Process = () => {
     <section id="process" className="scroll-mt-20 border-b border-line" aria-labelledby="process-title">
       <div className="shell py-20 md:py-28">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium text-pine">03</p>
+          <p className="text-sm font-medium text-grove">03</p>
           <h2 id="process-title" className="mt-3 font-serif text-4xl text-balance sm:text-5xl">
             How we work
           </h2>
@@ -42,7 +42,7 @@ const Process = () => {
         <ol className="mt-14 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <li key={step.title} className="bg-paper p-6 md:p-8">
-              <p className="font-serif text-3xl text-pine">0{index + 1}</p>
+              <p className="font-serif text-3xl text-grove">0{index + 1}</p>
               <h3 className="mt-4 font-serif text-2xl text-ink">{step.title}</h3>
               <p className="mt-3 text-base leading-relaxed text-stone">{step.body}</p>
             </li>

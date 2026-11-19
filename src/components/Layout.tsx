@@ -33,11 +33,11 @@ function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-md">
+    <header className="site-header sticky top-0 z-40 bg-paper/95 backdrop-blur-md">
       <div className="shell flex h-16 items-center justify-between gap-4">
         <Link
           to="/"
-          className="font-serif text-xl tracking-tight text-ink sm:text-2xl"
+          className="font-serif text-xl tracking-tight text-ink underline decoration-lime decoration-2 underline-offset-4 sm:text-2xl"
         >
           {site.name}
         </Link>
@@ -55,7 +55,7 @@ function Header() {
           ))}
           <Link
             to="/#contact"
-            className="inline-flex h-10 items-center bg-pine px-4 text-sm font-medium text-white hover:bg-pine-deep"
+            className="inline-flex h-10 items-center bg-lime px-4 text-sm font-medium text-lime-ink hover:bg-grove hover:text-white"
           >
             Start a project
           </Link>
@@ -94,7 +94,7 @@ function Header() {
             <li className="py-3">
               <Link
                 to="/#contact"
-                className="inline-flex h-12 w-full items-center justify-center bg-pine text-sm font-medium text-white"
+                className="inline-flex h-12 w-full items-center justify-center bg-lime text-sm font-medium text-lime-ink hover:bg-grove hover:text-white"
                 onClick={() => setOpen(false)}
               >
                 Start a project
@@ -151,8 +151,8 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="shell py-5 text-xs text-paper/50">
-          © {new Date().getFullYear()} {site.name}
+        <p className="shell py-5 text-sm text-paper/80">
+          © {new Date().getFullYear()} {site.legalName}, {site.city}
         </p>
       </div>
     </footer>

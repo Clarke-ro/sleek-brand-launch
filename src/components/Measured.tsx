@@ -17,7 +17,7 @@ const Measured = () => {
     >
       <div className="shell py-20 md:py-28">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium text-pine">04</p>
+          <p className="text-sm font-medium text-grove">04</p>
           <h2 id="measured-title" className="mt-3 font-serif text-4xl text-balance sm:text-5xl">
             Checked on the live sites
           </h2>
@@ -86,7 +86,7 @@ const Measured = () => {
                 <ul className="mt-3 space-y-2">
                   {project.observed.map((item) => (
                     <li key={item} className="flex gap-3 text-sm leading-relaxed text-stone">
-                      <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 bg-pine" />
+                      <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 bg-lime" />
                       {item}
                     </li>
                   ))}

@@ -6,7 +6,7 @@ const Work = () => {
     <section id="work" className="scroll-mt-20 border-b border-line" aria-labelledby="work-title">
       <div className="shell py-20 md:py-28">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium text-pine">01</p>
+          <p className="text-sm font-medium text-grove">01</p>
           <h2 id="work-title" className="mt-3 font-serif text-4xl text-balance sm:text-5xl">
             Work
           </h2>
@@ -37,7 +37,7 @@ const Work = () => {
                     <span aria-hidden="true" className="h-px w-6 bg-line" />
                     <span>{project.kind}</span>
                   </div>
-                  <h3 className="mt-2 font-serif text-3xl text-ink group-hover:text-pine">
+                  <h3 className="mt-2 font-serif text-3xl text-ink group-hover:text-grove">
                     {project.name}
                   </h3>
                 </a>

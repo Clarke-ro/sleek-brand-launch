@@ -2,7 +2,7 @@
 
 The company name is one line: the `name` field in `src/content/site.ts`.
 
-That value is the wordmark, the footer, the document title, the Open Graph and Twitter tags, and the web app manifest. Change it there only. The page is the studio of Clarke Adjorlolo in Accra. It presents websites, restaurant ordering sites, and online stores. The work section links to live prototypes.
+That value is the wordmark, the footer brand, the document title, the Open Graph and Twitter tags, and the web app manifest. Change it there only. The copyright line uses `legalName`. Clarke Adjorlolo remains the founder. The page is his studio in Accra. It presents websites, restaurant ordering sites, and online stores. The work section links to live prototypes.
 
 ## Fill in before publishing
 

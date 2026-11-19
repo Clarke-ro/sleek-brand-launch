@@ -57,7 +57,7 @@ const ContactSection = () => {
       <div className="shell py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-sm font-medium text-pine">05</p>
+            <p className="text-sm font-medium text-grove">05</p>
             <h2 id="contact-title" className="mt-3 font-serif text-4xl text-balance sm:text-5xl">
               Contact
             </h2>

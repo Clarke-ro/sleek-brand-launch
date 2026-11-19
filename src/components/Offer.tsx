@@ -23,7 +23,7 @@ const Offer = () => {
       <div className="shell py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <p className="text-sm font-medium text-pine">02</p>
+            <p className="text-sm font-medium text-grove">02</p>
             <h2 id="offer-title" className="mt-3 font-serif text-4xl text-balance sm:text-5xl">
               What we offer
             </h2>
@@ -36,7 +36,7 @@ const Offer = () => {
             {offers.map((offer, index) => (
               <li key={offer.title} className="border-t border-line py-7 first:border-t-0 first:pt-0">
                 <h3 className="font-serif text-2xl text-ink">
-                  <span className="mr-3 font-sans text-sm font-medium text-pine">
+                  <span className="mr-3 font-sans text-sm font-medium text-grove">
                     0{index + 1}
                   </span>
                   {offer.title}

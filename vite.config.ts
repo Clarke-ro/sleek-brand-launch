@@ -20,7 +20,7 @@ function studioManifest() {
     start_url: "/",
     display: "standalone",
     background_color: "#f4f3ef",
-    theme_color: "#f4f3ef",
+    theme_color: "#8CC63F",
     orientation: "portrait-primary",
     icons: [
       { src: "/icon-192.png", sizes: "192x192", type: "image/png" },

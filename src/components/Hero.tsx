@@ -11,12 +11,12 @@ const Hero = () => {
   return (
     <section className="border-b border-line">
       <div className="shell pb-16 pt-16 md:pb-24 md:pt-24">
-        <p className="text-sm font-medium uppercase tracking-[0.16em] text-pine">
+        <p className="text-sm font-medium uppercase tracking-[0.16em] text-grove">
           Software studio
         </p>
         <h1 className="mt-5 max-w-4xl text-balance font-serif text-[2.6rem] leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
           Websites and ordering sites, built in{" "}
-          <em className="italic text-pine">Accra</em>.
+          <em className="italic text-grove">Accra</em>.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone sm:text-xl">
           {site.name} is the studio of {site.founder}. He builds websites,
@@ -26,7 +26,7 @@ const Hero = () => {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/#work"
-            className="inline-flex h-12 items-center justify-center bg-pine px-5 text-sm font-medium text-white hover:bg-pine-deep"
+            className="inline-flex h-12 items-center justify-center bg-lime px-5 text-sm font-medium text-lime-ink hover:bg-grove hover:text-white"
           >
             View the prototypes
           </Link>

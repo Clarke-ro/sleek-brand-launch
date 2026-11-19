@@ -72,10 +72,11 @@ export default {
 				ink: '#161513',
 				stone: '#5c574f',
 				line: '#e2dfd8',
-				pine: {
-					DEFAULT: '#0e4b3c',
-					deep: '#0b3d31',
+				lime: {
+					DEFAULT: '#8CC63F',
+					ink: '#1B3A0C',
 				},
+				grove: '#4A7A28',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

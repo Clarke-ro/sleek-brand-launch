@@ -2,15 +2,16 @@
  * Studio name and contact placeholders.
  *
  * The company name is the `name` field below. Change that one line.
- * The wordmark, footer, document title, social meta tags, and manifest
- * all read it from here.
+ * The wordmark, footer brand, document title, social meta tags, and manifest
+ * all read it from here. The copyright line uses `legalName`.
  *
  * Replace `whatsappDisplay` and `email` before publishing.
  * They are placeholders, not real contact details.
  */
 
 export const site = {
-  name: "Adjorlolo",
+  name: "Melon",
+  legalName: "Melon Ltd",
   city: "Accra, Ghana",
   founder: "Clarke Adjorlolo",
   role: "Final-year computer engineering student",
