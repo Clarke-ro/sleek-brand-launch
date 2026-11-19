@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# Studio site
 
-## Project info
+The company name is one line: the `name` field in `src/content/site.ts`.
 
-**URL**: https://lovable.dev/projects/b7c0239f-e189-40f5-b974-acb6cd0d7b28
+That value is the wordmark, the footer, the document title, the Open Graph and Twitter tags, and the web app manifest. Change it there only. The page is the studio of Clarke Adjorlolo in Accra. It presents websites, restaurant ordering sites, and online stores. The work section links to live prototypes.
 
-## How can I edit this code?
+## Fill in before publishing
 
-There are several ways of editing your application.
+These are placeholders. They are not real contact details.
 
-**Use Lovable**
+- WhatsApp number: `whatsappDisplay` in `src/content/site.ts` (currently `+233 XX XXX XXXX`)
+- Email: `email` in `src/content/site.ts` (currently `you@example.com`)
+- Public URL, if it changes: `url` in `src/content/site.ts` (currently `https://brandandwebco.vercel.app`)
+- Supabase email functions under `supabase/functions/` still expect an inbox. Their recipient is `YOUR_EMAIL@example.com` until you set it.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b7c0239f-e189-40f5-b974-acb6cd0d7b28) and start prompting.
+Lighthouse figures on the page come from a real run against the live prototype URLs. Replace them only with a new measurement. The date and tool are in `labReport` inside `src/content/site.ts`.
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Scripts
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs on port 8080.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+## Stack
 
 - Vite
 - TypeScript
 - React
-- shadcn-ui
 - Tailwind CSS
+- shadcn/ui
 
-## How can I deploy this project?
+## Prototypes linked from the site
 
-Simply open [Lovable](https://lovable.dev/projects/b7c0239f-e189-40f5-b974-acb6cd0d7b28) and click on Share -> Publish.
+The site labels each of these as a prototype.
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- https://cravins-landing.vercel.app
+- https://usetakeorder.app
+- https://wearaword.store
+- https://pate-a-choux-accra.netlify.app

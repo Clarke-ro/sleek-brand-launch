@@ -43,10 +43,10 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send email to Brand & Web Co - matching the working booking email format
+    // PLACEHOLDER inbox: replace YOUR_EMAIL@example.com before deploying.
     const emailResponse = await resend.emails.send({
-      from: "Brand & Web Co <onboarding@resend.dev>",
-      to: ["brandandwebco@gmail.com"],
+      from: "Studio <onboarding@resend.dev>",
+      to: ["YOUR_EMAIL@example.com"],
       subject: `New Contact Message: ${contactData.subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
           </div>
 
           <div style="margin-top: 30px; padding: 15px; background-color: #1e3a8a; color: white; border-radius: 8px; text-align: center;">
-            <p style="margin: 0;">This message was submitted through your Brand & Web Co contact form.</p>
+            <p style="margin: 0;">This message was submitted through the studio website.</p>
           </div>
         </div>
       `,

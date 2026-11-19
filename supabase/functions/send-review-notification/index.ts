@@ -34,8 +34,8 @@ const handler = async (req: Request): Promise<Response> => {
     const rejectUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/review-action?id=${reviewId}&action=reject`;
 
     const emailResponse = await resend.emails.send({
-      from: "Brand & Web Co <noreply@brandandwebco.com>",
-      to: ["brandandwebco@gmail.com"],
+      from: "Studio <onboarding@resend.dev>",
+      to: ["YOUR_EMAIL@example.com"],
       subject: `New Review Submission - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -73,7 +73,7 @@ const handler = async (req: Request): Promise<Response> => {
 
           <div style="border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 30px; color: #6b7280; font-size: 14px;">
             <p>This email was sent automatically when a new review was submitted on your website.</p>
-            <p>Brand & Web Co - Review Management System</p>
+            <p>Studio website</p>
           </div>
         </div>
       `,

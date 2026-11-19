@@ -46,10 +46,10 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send email to Brand & Web Co
+    // PLACEHOLDER inbox: replace YOUR_EMAIL@example.com before deploying.
     const emailResponse = await resend.emails.send({
-      from: "Brand & Web Co <onboarding@resend.dev>",
-      to: ["brandandwebco@gmail.com"],
+      from: "Studio <onboarding@resend.dev>",
+      to: ["YOUR_EMAIL@example.com"],
       subject: `New Project Booking Request - ${bookingData.service}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -80,7 +80,7 @@ const handler = async (req: Request): Promise<Response> => {
           ` : ''}
 
           <div style="margin-top: 30px; padding: 15px; background-color: #1e3a8a; color: white; border-radius: 8px; text-align: center;">
-            <p style="margin: 0;">This booking request was submitted through your Brand & Web Co website.</p>
+            <p style="margin: 0;">This booking request was submitted through the studio website.</p>
           </div>
         </div>
       `,
