@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-				marykate: ['MaryKate', 'cursive', 'system-ui'],
+				sans: ['"Public Sans"', 'system-ui', 'sans-serif'],
+				serif: ['Newsreader', 'Georgia', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -67,7 +67,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				navy: '#0f172a',
-				gold: '#facc15'
+				gold: '#facc15',
+				paper: '#f4f3ef',
+				ink: '#161513',
+				stone: '#5c574f',
+				line: '#e2dfd8',
+				lime: {
+					DEFAULT: '#8CC63F',
+					ink: '#1B3A0C',
+				},
+				grove: '#4A7A28',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -1,29 +1,21 @@
-
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import LogoBanner from '@/components/LogoBanner';
-import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
-import Testimonials from '@/components/Testimonials';
-import Pricing from '@/components/Pricing';
-import Booking from '@/components/Booking';
-import CTA from '@/components/CTA';
-import Footer from '@/components/Footer';
+import ContactSection from "@/components/ContactSection";
+import Hero from "@/components/Hero";
+import { Layout } from "@/components/Layout";
+import Measured from "@/components/Measured";
+import Offer from "@/components/Offer";
+import Process from "@/components/Process";
+import Work from "@/components/Work";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <Layout>
       <Hero />
-      <LogoBanner />
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <Pricing />
-      <Booking />
-      <CTA />
-      <Footer />
-    </div>
+      <Work />
+      <Offer />
+      <Process />
+      <Measured />
+      <ContactSection />
+    </Layout>
   );
 };
 
